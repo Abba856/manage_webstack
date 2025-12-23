@@ -1,0 +1,64 @@
+# install apache and phpmyadmin
+
+# Update system
+
+sudo dnf update -y
+
+# Install Apache (httpd)
+
+sudo dnf install httpd -y
+
+# Start and enable Apache:
+
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+# Install PHP
+
+sudo dnf install php php-mysqlnd php-json php-mbstring php-zip php-gd -y
+
+# Test in browser
+
+http://localhost
+
+# Update system
+
+sudo systemctl restart httpd
+
+# Install MariaDB (MySQL replacement)
+
+sudo dnf install mariadb-server -y
+
+# Start and enable
+
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+
+# Secure it
+
+sudo mysql_secure_installation
+
+# Enable EPEL repository (required for phpMyAdmin)
+
+sudo dnf install epel-release -y
+
+# Install phpMyAdmin
+
+sudo dnf install phpMyAdmin -y
+
+# Install phpMyAdmin
+
+sudo dnf install phpMyAdmin -y
+
+# Restart Apache
+
+sudo systemctl restart httpd
+
+# Access phpMyAdmin
+
+http://localhost/phpMyAdmin
+
+# Command to give full permissions
+
+sudo chmod -R 777 /var/www/html
+sudo chown -R apache:apache /var/www/html
